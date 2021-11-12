@@ -17,6 +17,9 @@ import Container from "../../components/Container";
 import LogoutMenu from "../../components/LogoutMenu";
 import Table from "../../components/Table";
 import theme from "../../styles/customMuiTheme.js";
+import LogoutButton from "../../components/LogoutButton"
+import ButtonSicredi from "../../components/ButtonSicredi"
+
 
 const useStyles = makeStyles({
     logo: {
@@ -88,8 +91,23 @@ export function ProductsUserPage() {
 
     return (
         <>
+            <Grid container
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="flex-start"
+                  spacing={2}
+            >
+                <Grid item>
+                    <LogoutButton  onClick={() => {
+                        window.localStorage.removeItem("token")
+                        history.push("/login") }}> </LogoutButton>
+                </Grid>
+                <Grid item>
+                    <ButtonSicredi href={'https://www.sicredi.com.br/site/home'}/>
+                </Grid>
+            </Grid>
+
             <Logo
-                onClick={handleClick}
                 aria-controls="menu"
                 aria-haspopup="true"
                 className={classes.logo}
@@ -105,7 +123,9 @@ export function ProductsUserPage() {
                 onClose={handleClose}
                 onClick={handleOnClick}
             />
+
             <Container style={{ padding: isMobile ? 30 : 40 }}>
+
                 <Grid
                     spacing={isMobile ? 6 : 8}
                     container

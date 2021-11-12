@@ -23,6 +23,7 @@ import Link from "../../components/Link";
 import api from "../../services/api.js";
 import theme from "../../styles/customMuiTheme.js";
 import homeRoute from "../../utils/homeRoute.js";
+import LogoutButton from "../../components/LogoutButton"
 
 const useStyles = makeStyles({
     container: {
